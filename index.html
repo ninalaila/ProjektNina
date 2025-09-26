@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR model</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <title>AR model</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- Wasserähnliche Schriftart -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <style>
         
       body {
@@ -18,31 +20,46 @@
       }
 
       model-viewer {
-        width: 80%;
-        height: 50%; /* Ensures it takes 50% of the screen height */
-        min-height: 300px; /* Sets a minimum height of 300px */
-        max-width: 800px; /* Sets a maximum width of 800px */
-        margin: 20px 0;
-        background-color: rgb(255, 231, 255);
-        flex-shrink: 0; /* Prevents shrinking of the model-viewer */
+  width: 80%;
+  height: 50%; /* Ensures it takes 50% of the screen height */
+  min-height: 300px; /* Sets a minimum height of 300px */
+  max-width: 800px; /* Sets a maximum width of 800px */
+  margin: 20px 0;
+  /* Stärkerer, weicherer Gradient für unsichtbare Kanten */
+  background: radial-gradient(circle, rgba(255,231,255,1) 40%, rgba(255,231,255,0.5) 70%, rgba(255,231,255,0.15) 90%, rgba(187,249,248,0) 100%);
+  flex-shrink: 0; /* Prevents shrinking of the model-viewer */
       }
 
-      .text-box {
-        width: 80%; /* Same width as model-viewer */
-        padding: 20px;
-        margin: 20px 0;
-        background-color: white;
-        max-width: 800px; /* Sets a maximum width of 800px */
-        color: black;
-        text-align: left;
-        box-sizing: border-box; /* Ensures padding doesn't affect width */
-        margin-bottom: 20px;
+      .water-text {
+        width: 100%;
+        text-align: center;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 2.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: #00bcd4;
+        background: linear-gradient(90deg, #00bcd4 0%, #b2ebf2 40%, #fff 60%, #00bcd4 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 12px rgba(0,188,212,0.25), 0 1px 0 #fff, 0 0 16px #b2ebf2;
+        margin: 0 0 10px 0;
+        position: relative;
+        display: block;
+        animation: waterWave 3.5s infinite linear alternate;
+        user-select: none;
       }
-
-      h2 {
-        margin: 10;
-        padding: 10px;
-        color: black;
+      .water-text.bottom {
+        font-size: 2rem;
+        margin: 10px 0 0 0;
+      }
+      @keyframes waterWave {
+        0% { transform: translateY(0) skewX(0deg) scaleY(1); }
+        20% { transform: translateY(-2px) skewX(-2deg) scaleY(1.05); }
+        40% { transform: translateY(2px) skewX(2deg) scaleY(0.98); }
+        60% { transform: translateY(-1px) skewX(-1deg) scaleY(1.03); }
+        80% { transform: translateY(1px) skewX(1deg) scaleY(0.97); }
+        100% { transform: translateY(0) skewX(0deg) scaleY(1); }
       }
 
       .rounded-box {
@@ -59,10 +76,10 @@
         border: 2px solid #ccc; /* Optional: Rahmen */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
       }
-      .bottom-left-arrow {
+  .bottom-left-arrow {
         position: fixed;
-        left: 24px;
-        bottom: 24px;
+        left: 30%;
+        bottom: 64px;
         z-index: 1000;
         background: white;
         border-radius: 50%;
@@ -75,19 +92,22 @@
         transition: background 0.2s;
         border: none;
         text-decoration: none;
+  transform: translateX(-50%);
+  opacity: 0.7;
       }
       .bottom-left-arrow:hover {
         background: #e0f7fa;
+        opacity: 1;
       }
       .bottom-left-arrow svg {
         width: 28px;
         height: 28px;
         fill: #00796b;
       }
-      .bottom-right-arrow {
+  .bottom-right-arrow {
         position: fixed;
-        right: 24px;
-        bottom: 24px;
+        left: 70%;
+        bottom: 64px;
         z-index: 1000;
         background: white;
         border-radius: 50%;
@@ -100,9 +120,12 @@
         transition: background 0.2s;
         border: none;
         text-decoration: none;
+  transform: translateX(-50%);
+  opacity: 0.7;
       }
       .bottom-right-arrow:hover {
         background: #e0f7fa;
+        opacity: 1;
       }
       .bottom-right-arrow svg {
         width: 28px;
@@ -112,7 +135,7 @@
     </style>
   </head>
   <body>
-<H2>ProjektNina</H2>
+  <div class="water-text">Projekt von Nina</div>
   <model-viewer src="Flasche.glb"
                 ios-src="Flasche2.usdz"
                 alt="ProjektNina"
@@ -125,9 +148,7 @@
                 ar-modes="webxr scene-viewer quick-look" 
                 environment-image="neutral">   
   </model-viewer>
-  <div class="text-box">
-Hallo neues Projekt  
-</div>
+  <div class="water-text bottom">Immer schön viel Wasser trinken</div>
   <!-- Unten links Pfeil-Button -->
   <a class="bottom-left-arrow" href="https://screenschots.github.io/ar/" target="_blank" title="Zur AR-Seite">
   <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
