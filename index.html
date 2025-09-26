@@ -44,6 +44,71 @@
         padding: 10px;
         color: black;
       }
+
+      .rounded-box {
+        width: 80%; /* Same width as model-viewer */
+        padding: 20px;
+        margin: 20px 0;
+        background-color: rgb(255, 255, 255);
+        max-width: 800px; /* Sets a maximum width of 800px */
+        color: black;
+        text-align: center;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+        border-radius: 20px; /* Wert anpassen für mehr/weniger Abrundung */
+        overflow: hidden;    /* Wichtig für Bilder/3D-Canvas */
+        border: 2px solid #ccc; /* Optional: Rahmen */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      }
+      .bottom-left-arrow {
+        position: fixed;
+        left: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        border: none;
+        text-decoration: none;
+      }
+      .bottom-left-arrow:hover {
+        background: #e0f7fa;
+      }
+      .bottom-left-arrow svg {
+        width: 28px;
+        height: 28px;
+        fill: #00796b;
+      }
+      .bottom-right-arrow {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 1000;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        border: none;
+        text-decoration: none;
+      }
+      .bottom-right-arrow:hover {
+        background: #e0f7fa;
+      }
+      .bottom-right-arrow svg {
+        width: 28px;
+        height: 28px;
+        fill: #00796b;
+      }
     </style>
   </head>
   <body>
@@ -61,20 +126,17 @@
                 environment-image="neutral">   
   </model-viewer>
   <div class="text-box">
-Hallo neues Projekt  </div>
-   h2, p {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.8s forwards;
-}
-h2 { animation-delay: 0.2s; }
-p { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+Hallo neues Projekt  
+</div>
+  <!-- Unten links Pfeil-Button -->
+  <a class="bottom-left-arrow" href="https://screenschots.github.io/ar/" target="_blank" title="Zur AR-Seite">
+  <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <!-- Unten rechts Pfeil-Button -->
+  <a class="bottom-right-arrow" href="https://marsalis030.github.io/Projekt_Justin/" target="_blank" title="Zu Justins Projekt">
+    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  
+  
 </body>
 </html>
