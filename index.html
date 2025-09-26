@@ -12,11 +12,20 @@
       body {
         background-color: rgb(187, 249, 248);
         color: rgb(79, 3, 3);
+        margin: 0;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .center-content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 100vh;
-        margin: 0;
+        justify-content: center;
+        min-height: 80vh;
+        width: 100vw;
+        position: relative;
       }
 
       model-viewer {
@@ -48,6 +57,48 @@
         display: block;
         animation: waterWave 3.5s infinite linear alternate;
         user-select: none;
+        overflow: visible;
+      }
+
+      .bubble-container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 120%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+      }
+      .bubble {
+        position: absolute;
+        bottom: 0;
+        border-radius: 50%;
+        background: rgba(0, 188, 212, 0.25);
+        box-shadow: 0 0 8px 2px #b2ebf2;
+        opacity: 0.7;
+        animation: bubbleUp 4s linear infinite;
+      }
+      .bubble1 { left: 20%; width: 14px; height: 14px; animation-delay: 0s; }
+      .bubble2 { left: 40%; width: 10px; height: 10px; animation-delay: 1.2s; }
+      .bubble3 { left: 60%; width: 18px; height: 18px; animation-delay: 2.1s; }
+      .bubble4 { left: 75%; width: 8px; height: 8px; animation-delay: 0.7s; }
+      .bubble5 { left: 30%; width: 12px; height: 12px; animation-delay: 2.7s; }
+      .bubble6 { left: 55%; width: 9px; height: 9px; animation-delay: 1.7s; }
+      .bubble7 { left: 80%; width: 13px; height: 13px; animation-delay: 3.1s; }
+
+      @keyframes bubbleUp {
+        0% {
+          transform: translateY(40px) scale(1);
+          opacity: 0.7;
+        }
+        80% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-90px) scale(1.2);
+          opacity: 0;
+        }
       }
       .water-text.bottom {
         font-size: 2rem;
@@ -135,29 +186,46 @@
     </style>
   </head>
   <body>
-  <div class="water-text">Projekt von Nina</div>
-  <model-viewer src="Flasche.glb"
-                ios-src="Flasche2.usdz"
-                alt="ProjektNina"
-                ar
-                auto-rotate
-                camera-controls
-                autoplay
-                animation-loop
-                animation-name="CubeAction"
-                ar-modes="webxr scene-viewer quick-look" 
-                environment-image="neutral">   
-  </model-viewer>
-  <div class="water-text bottom">Immer schön viel Wasser trinken</div>
-  <!-- Unten links Pfeil-Button -->
-  <a class="bottom-left-arrow" href="https://screenschots.github.io/ar/" target="_blank" title="Zur AR-Seite">
-  <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  <!-- Unten rechts Pfeil-Button -->
-  <a class="bottom-right-arrow" href="https://marsalis030.github.io/Projekt_Justin/" target="_blank" title="Zu Justins Projekt">
-    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-  
-  
-</body>
+    <div class="center-content">
+      <div class="water-text">
+        <span>Projekt von Nina</span>
+        <div class="bubble-container">
+          <div class="bubble bubble1"></div>
+          <div class="bubble bubble2"></div>
+          <div class="bubble bubble3"></div>
+          <div class="bubble bubble4"></div>
+          <div class="bubble bubble5"></div>
+        </div>
+      </div>
+      <model-viewer src="Flasche.glb"
+                    ios-src="Flasche2.usdz"
+                    alt="ProjektNina"
+                    ar
+                    auto-rotate
+                    camera-controls
+                    autoplay
+                    animation-loop
+                    animation-name="CubeAction"
+                    ar-modes="webxr scene-viewer quick-look" 
+                    environment-image="neutral">   
+      </model-viewer>
+      <div class="water-text bottom">
+        <span>Immer schön viel Wasser trinken</span>
+        <div class="bubble-container">
+          <div class="bubble bubble2"></div>
+          <div class="bubble bubble3"></div>
+          <div class="bubble bubble6"></div>
+          <div class="bubble bubble7"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Unten links Pfeil-Button -->
+    <a class="bottom-left-arrow" href="https://screenschots.github.io/ar/" target="_blank" title="Zur AR-Seite">
+      <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <!-- Unten rechts Pfeil-Button -->
+    <a class="bottom-right-arrow" href="https://marsalis030.github.io/Projekt_Justin/" target="_blank" title="Zu Justins Projekt">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="#00796b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </body>
 </html>
