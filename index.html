@@ -29,14 +29,14 @@
       }
 
       model-viewer {
-        width: 85%;
-        height: 54vh;
-        min-height: 340px;
-        max-width: 950px;
-        margin: 24px 0;
+        width: 98vw;
+        height: 80vh;
+        min-height: 500px;
+        max-width: 1800px;
+        margin: 32px 0;
         background: #23272b;
-        border: 1px solid #444;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        border: 5px solid #444;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.13);
         flex-shrink: 0;
         display: block;
       }
@@ -50,6 +50,8 @@
         letter-spacing: 0.5px;
         color: #222;
         margin: 0 0 12px 0;
+        padding-left: 10vw;
+        padding-right: 10vw;
         position: relative;
         display: block;
         user-select: none;
@@ -61,8 +63,10 @@
       /* Luftblasen und Animation entfernt */
       .water-text.bottom {
         font-size: 14px;
-        margin: 12px 0 120px 0;
+        margin: 5px 0 120px 0;
         color: #555;
+        padding-left: 15vw;
+        padding-right: 15vw;
       }
       /* WasserWave Animation entfernt */
 
@@ -113,7 +117,7 @@
     left: 70%;
     bottom: 80px;
     z-index: 1000;
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     width: 48px;
@@ -134,27 +138,28 @@
       .bottom-right-arrow svg {
         width: 28px;
         height: 28px;
-        fill: #00796b;
+        fill: #034b1e;
       }
     </style>
   </head>
   <body>
     <div class="center-content">
       <div class="water-text">
-        <span>Projekt von Nina</span>
+        <span>Das Wood Wide Web</span>
       </div>
-      <model-viewer src="WWW1.glb"
-                    ios-src="WWW.usdz"
-                    alt="Woodwideweb"
-                    ar
-                    auto-rotate
-                    camera-controls
-                    autoplay
-                    animation-loop
-                    animation-name="CubeAction"
-                    ar-modes="webxr scene-viewer quick-look" 
-                    environment-image="neutral">   
-      </model-viewer>
+  <model-viewer src="WWW1.glb"
+        ios-src="WWW.usdz"
+        alt="Woodwideweb"
+        ar
+        auto-rotate
+        camera-controls
+        autoplay
+        animation-loop
+        animation-name="CubeAction"
+        ar-modes="webxr scene-viewer quick-look" 
+        environment-image="neutral"
+        field-of-view="20deg">
+  </model-viewer>
       <div class="water-text bottom">
         <span>In Hamburg steht ein Baum, dessen ökologische Bedeutung weit über seine sichtbare 
 Erscheinung hinausgeht. Unter der Erde verbindet sich sein Wurzelsystem mit einem dichten Geflecht aus Pilzfäden, der sogenannten Mykorrhiza. Dieses Netzwerk 
